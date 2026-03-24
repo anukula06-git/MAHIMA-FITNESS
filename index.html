@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAHIMA FITNESS | The Iron Den of Bhubaneswar</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #bef264; /* Electric Lime */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #09090b;
+        }
+        .font-heading { font-family: 'Syncopate', sans-serif; }
+        
+        .text-accent { color: var(--accent); }
+        .bg-accent { background-color: var(--accent); }
+        .border-accent { border-color: var(--accent); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(9,9,11,0.4), rgba(9,9,11,1)), 
+                        url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .outline-text {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            color: transparent;
+        }
+
+        /* NEW STYLES FOR ADDED SECTIONS */
+        .before-after-container:hover .after-img {
+            opacity: 1;
+        }
+        .after-img {
+            transition: opacity 0.5s ease-in-out;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details[open] summary i { transform: rotate(180deg); }
+        
+        @keyframes pulse-neon {
+            0% { box-shadow: 0 0 0 0 rgba(190, 242, 100, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(190, 242, 100, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(190, 242, 100, 0); }
+        }
+        .pulse-button { animation: pulse-neon 2s infinite; }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- [NEW] Floating WhatsApp Button -->
+    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="fixed bottom-24 right-6 md:bottom-10 md:right-10 z-[100] bg-[#25D366] w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform">
+        <i class="fab fa-whatsapp text-white"></i>
+    </a>
+
+    <!-- [NEW] Sticky Mobile Bottom Bar (Visible only on mobile) -->
+    <div class="fixed bottom-0 left-0 w-full z-[101] grid grid-cols-3 bg-zinc-950 border-t border-zinc-800 md:hidden">
+        <a href="tel:+91XXXXXXXXXX" class="flex flex-col items-center py-3 border-r border-zinc-800">
+            <i class="fas fa-phone text-accent"></i>
+            <span class="text-[10px] uppercase mt-1">Call Now</span>
+        </a>
+        <a href="#contact" class="flex flex-col items-center py-3 bg-accent text-black font-bold">
+            <i class="fas fa-bolt"></i>
+            <span class="text-[10px] uppercase mt-1">Join Tribe</span>
+        </a>
+        <a href="https://wa.me/91XXXXXXXXXX" class="flex flex-col items-center py-3">
+            <i class="fab fa-whatsapp text-accent text-lg"></i>
+            <span class="text-[10px] uppercase mt-1">WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-[100] transition-all duration-300 py-6 px-10" id="navbar">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-black font-black italic text-xl">M</div>
+                <span class="font-heading text-xl tracking-tighter uppercase">Mahima <span class="text-accent italic">Fitness</span></span>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-10 font-semibold uppercase text-xs tracking-[0.2em]">
+                <a href="#home" class="hover:text-accent transition">Home</a>
+                <a href="#about" class="hover:text-accent transition">About</a>
+                <a href="#programs" class="hover:text-accent transition">Programs</a>
+                <a href="#trainers" class="hover:text-accent transition">Team</a>
+                <a href="#pricing" class="hover:text-accent transition">Pricing</a>
+                <a href="#contact" class="px-6 py-3 border border-accent text-accent hover:bg-accent hover:text-black transition duration-500 rounded-full">Join the tribe</a>
+            </div>
+
+            <!-- Mobile Menu Icon -->
+            <div class="lg:hidden text-2xl">
+                <i class="fas fa-bars-staggered"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center pt-20 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <h2 class="text-accent font-bold tracking-[0.3em] uppercase mb-4 block">Bhubaneswar's Finest</h2>
+                <h1 class="text-6xl md:text-8xl font-heading font-bold leading-none mb-6">NO <br> <span class="outline-text">LIMITS</span> <br> JUST GAINS.</h1>
+                <p class="text-zinc-400 text-lg max-w-md mb-8 leading-relaxed">
+                    Transform your physique at Mahima Fitness Gym, Patia. State-of-the-art equipment and elite training methods.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#pricing" class="px-10 py-5 bg-accent text-black font-black uppercase tracking-widest rounded-sm hover:scale-105 transition transform duration-300">Get Started</a>
+                    <a href="https://www.instagram.com/mahima.fitness_gym/" target="_blank" class="px-10 py-5 glass font-bold uppercase tracking-widest rounded-sm hover:bg-white/10 transition">Follow on IG</a>
+                </div>
+            </div>
+            <div class="relative hidden lg:block" data-aos="zoom-in" data-aos-duration="1500">
+                <div class="absolute -inset-4 border border-accent/20 rounded-full animate-pulse"></div>
+                <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=800&auto=format&fit=crop" class="rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition duration-700" alt="Athlete">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-20 bg-zinc-950 border-y border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            <div data-aos="fade-up" data-aos-delay="100">
+                <p class="text-5xl font-heading text-accent mb-2">10+</p>
+                <p class="text-zinc-500 uppercase tracking-widest text-xs">Expert Trainers</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <p class="text-5xl font-heading text-accent mb-2">500+</p>
+                <p class="text-zinc-500 uppercase tracking-widest text-xs">Active Members</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <p class="text-5xl font-heading text-accent mb-2">2k</p>
+                <p class="text-zinc-500 uppercase tracking-widest text-xs">Workouts Done</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400">
+                <p class="text-5xl font-heading text-accent mb-2">99%</p>
+                <p class="text-zinc-500 uppercase tracking-widest text-xs">Success Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="about" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
+            <div class="lg:w-1/2 relative" data-aos="fade-right">
+                <div class="absolute top-0 -left-4 w-32 h-32 bg-accent/20 blur-3xl rounded-full"></div>
+                <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=2069&auto=format&fit=crop" class="rounded-xl relative z-10" alt="Gym Floor">
+                <div class="absolute -bottom-10 -right-10 glass p-8 rounded-xl z-20 hidden md:block">
+                    <p class="text-3xl font-bold">24/7</p>
+                    <p class="text-zinc-400 text-sm">Security & Support</p>
+                </div>
+            </div>
+            <div class="lg:w-1/2" data-aos="fade-left">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-8">WHY <span class="text-accent italic">MAHIMA</span> FITNESS?</h2>
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <div class="w-14 h-14 bg-zinc-900 rounded-lg flex items-center justify-center shrink-0 border border-zinc-800">
+                            <i class="fas fa-dumbbell text-accent text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 uppercase">Modern Equipment</h4>
+                            <p class="text-zinc-400">We house the latest ISO-lateral technology and premium free weights for precision training.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-14 h-14 bg-zinc-900 rounded-lg flex items-center justify-center shrink-0 border border-zinc-800">
+                            <i class="fas fa-heart-circle-check text-accent text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 uppercase">Holistic Wellness</h4>
+                            <p class="text-zinc-400">Not just lifting. We provide tailored diet charts and recovery protocols.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-14 h-14 bg-zinc-900 rounded-lg flex items-center justify-center shrink-0 border border-zinc-800">
+                            <i class="fas fa-location-dot text-accent text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 uppercase">Prime Location</h4>
+                            <p class="text-zinc-400">Conveniently located in Patia, GDS, near Maa Tarini Temple with ample parking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [NEW] Transformation Section -->
+    <section id="transformations" class="py-32 bg-zinc-950 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-6xl font-heading font-bold mb-4 uppercase">REAL <span class="text-accent italic">RESULTS</span></h2>
+                <div class="w-24 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Transformation 1 -->
+                <div class="group relative rounded-2xl overflow-hidden border border-zinc-800" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="flex h-80">
+                        <div class="w-1/2 grayscale"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2adfcd?q=80&w=400&auto=format&fit=crop" class="h-full w-full object-cover"></div>
+                        <div class="w-1/2 border-l border-zinc-800"><img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=400&auto=format&fit=crop" class="h-full w-full object-cover"></div>
+                    </div>
+                    <div class="p-6 bg-zinc-900 text-center">
+                        <p class="text-accent font-black tracking-widest uppercase italic">12 Weeks Transformation</p>
+                    </div>
+                    <div class="absolute top-4 left-4 bg-black/60 px-3 py-1 text-[10px] rounded uppercase">Before</div>
+                    <div class="absolute top-4 right-4 bg-accent px-3 py-1 text-[10px] text-black font-bold rounded uppercase">After</div>
+                </div>
+                <!-- Transformation 2 -->
+                <div class="group relative rounded-2xl overflow-hidden border border-zinc-800" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flex h-80">
+                        <div class="w-1/2 grayscale"><img src="https://images.unsplash.com/photo-1590239068512-6c37ff53ef2b?q=80&w=400&auto=format&fit=crop" class="h-full w-full object-cover"></div>
+                        <div class="w-1/2 border-l border-zinc-800"><img src="https://images.unsplash.com/photo-1532384748853-8f54a8f476e2?q=80&w=400&auto=format&fit=crop" class="h-full w-full object-cover"></div>
+                    </div>
+                    <div class="p-6 bg-zinc-900 text-center">
+                        <p class="text-accent font-black tracking-widest uppercase italic">Muscle Gain Pro</p>
+                    </div>
+                    <div class="absolute top-4 left-4 bg-black/60 px-3 py-1 text-[10px] rounded uppercase">Before</div>
+                    <div class="absolute top-4 right-4 bg-accent px-3 py-1 text-[10px] text-black font-bold rounded uppercase">After</div>
+                </div>
+                <!-- Transformation 3 -->
+                <div class="group relative rounded-2xl overflow-hidden border border-zinc-800" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="flex h-80">
+                        <div class="w-1/2 grayscale"><img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=400&auto=format&fit=crop" class="h-full w-full object-cover"></div>
+                        <div class="w-1/2 border-l border-zinc-800"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=400&auto=format&fit=crop" class="h-full w-full object-cover"></div>
+                    </div>
+                    <div class="p-6 bg-zinc-900 text-center">
+                        <p class="text-accent font-black tracking-widest uppercase italic">Fat Loss Journey</p>
+                    </div>
+                    <div class="absolute top-4 left-4 bg-black/60 px-3 py-1 text-[10px] rounded uppercase">Before</div>
+                    <div class="absolute top-4 right-4 bg-accent px-3 py-1 text-[10px] text-black font-bold rounded uppercase">After</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Grid -->
+    <section id="programs" class="py-32 bg-zinc-900 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-heading font-bold mb-4 uppercase">Explosive <br> <span class="text-accent italic">Programs</span></h2>
+                    <p class="text-zinc-500 max-w-md uppercase tracking-widest text-sm">Crafted for every fitness level from beginner to pro.</p>
+                </div>
+                <a href="#" class="text-accent border-b border-accent pb-2 hover:text-white hover:border-white transition uppercase font-bold text-sm tracking-widest">View all programs</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Card 1 -->
+                <div class="group relative h-[500px] overflow-hidden rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2adfcd?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <h3 class="text-2xl font-heading font-bold mb-2 uppercase italic">Strength Training</h3>
+                        <p class="text-zinc-400 text-sm opacity-0 group-hover:opacity-100 transition duration-500">Build pure power with our heavy lifting zones.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="group relative h-[500px] overflow-hidden rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <h3 class="text-2xl font-heading font-bold mb-2 uppercase italic">Cardio Blast</h3>
+                        <p class="text-zinc-400 text-sm opacity-0 group-hover:opacity-100 transition duration-500">Torch calories with high-end HIIT equipment.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="group relative h-[500px] overflow-hidden rounded-2xl md:mt-12" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <h3 class="text-2xl font-heading font-bold mb-2 uppercase italic">Transformation</h3>
+                        <p class="text-zinc-400 text-sm opacity-0 group-hover:opacity-100 transition duration-500">12-week challenge for guaranteed results.</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="group relative h-[500px] overflow-hidden rounded-2xl md:mt-12" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1599058917232-d750c1859d7c?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <h3 class="text-2xl font-heading font-bold mb-2 uppercase italic">Yoga/Flex</h3>
+                        <p class="text-zinc-400 text-sm opacity-0 group-hover:opacity-100 transition duration-500">Mobility and core strength sessions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [NEW] Trainer Profiles -->
+    <section id="trainers" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl md:text-6xl font-heading font-bold uppercase">THE <span class="text-accent italic">COACHES</span></h2>
+                    <p class="text-zinc-500 max-w-sm uppercase tracking-widest text-sm mt-4">Learn from the experts who live and breathe fitness.</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Trainer 1 -->
+                <div class="glass group rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fe?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold italic uppercase">Vikram Singh</h4>
+                        <p class="text-accent text-[10px] tracking-widest font-black mb-4 uppercase">Bodybuilding Expert</p>
+                        <p class="text-zinc-400 text-sm">8+ Years Experience. Certified Transformation Coach.</p>
+                    </div>
+                </div>
+                <!-- Trainer 2 -->
+                <div class="glass group rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold italic uppercase">Priya Mohanty</h4>
+                        <p class="text-accent text-[10px] tracking-widest font-black mb-4 uppercase">Functional Training</p>
+                        <p class="text-zinc-400 text-sm">Expert in HIIT and women's fat loss transformation.</p>
+                    </div>
+                </div>
+                <!-- Trainer 3 -->
+                <div class="glass group rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold italic uppercase">Rahul Das</h4>
+                        <p class="text-accent text-[10px] tracking-widest font-black mb-4 uppercase">Diet Specialist</p>
+                        <p class="text-zinc-400 text-sm">Helping you crush your goals with precision nutrition.</p>
+                    </div>
+                </div>
+                <!-- Trainer 4 -->
+                <div class="glass group rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-149175235542e-00ca7297ea92?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold italic uppercase">Suman K.</h4>
+                        <p class="text-accent text-[10px] tracking-widest font-black mb-4 uppercase">Core Strength</p>
+                        <p class="text-zinc-400 text-sm">Specialist in mobility and powerlifting basics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [NEW] Limited Offer Banner -->
+    <section class="py-16 px-6 bg-accent">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="text-black text-center md:text-left">
+                <h3 class="text-3xl font-heading font-black italic uppercase">LTD TIME OFFER!</h3>
+                <p class="font-bold tracking-widest uppercase">Get 1 Free Personal Training Session with Annual Membership</p>
+            </div>
+            <a href="#contact" class="bg-black text-accent px-10 py-4 font-black uppercase tracking-tighter rounded-full hover:scale-105 transition transform">Claim Offer Now</a>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl font-heading font-bold mb-4 uppercase">Membership <span class="text-accent italic">Plans</span></h2>
+                <p class="text-zinc-500">Affordable excellence in Patia, Bhubaneswar</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic -->
+                <div class="glass p-10 rounded-2xl transition hover:border-accent group" data-aos="fade-right">
+                    <h4 class="text-xl font-bold uppercase mb-4">Bronze</h4>
+                    <div class="text-5xl font-heading font-bold mb-6 italic">₹1,500<span class="text-sm font-normal text-zinc-500">/Month</span></div>
+                    <ul class="space-y-4 text-zinc-400 mb-10">
+                        <li><i class="fas fa-check-circle text-accent mr-3"></i> General Gym Access</li>
+                        <li><i class="fas fa-check-circle text-accent mr-3"></i> Locker Room</li>
+                        <li><i class="fas fa-check-circle text-accent mr-3"></i> Expert Guidance</li>
+                    </ul>
+                    <button class="w-full py-4 border border-white/20 group-hover:bg-accent group-hover:text-black transition duration-500 uppercase font-bold tracking-widest">Select Plan</button>
+                </div>
+                <!-- Elite -->
+                <div class="bg-accent p-10 rounded-2xl transition scale-105 shadow-[0_0_50px_rgba(190,242,100,0.2)]" data-aos="fade-up">
+                    <div class="bg-black text-white text-[10px] font-black px-4 py-1 rounded-full w-fit mb-4 tracking-widest uppercase">Most Popular</div>
+                    <h4 class="text-xl font-bold uppercase mb-4 text-black">Silver (3 Mo)</h4>
+                    <div class="text-5xl font-heading font-bold mb-6 italic text-black">₹4,000</div>
+                    <ul class="space-y-4 text-zinc-800 mb-10 font-semibold">
+                        <li><i class="fas fa-check-circle mr-3"></i> Full Gym Access</li>
+                        <li><i class="fas fa-check-circle mr-3"></i> Custom Diet Chart</li>
+                        <li><i class="fas fa-check-circle mr-3"></i> 24/7 Support</li>
+                        <li><i class="fas fa-check-circle mr-3"></i> Group HIIT Classes</li>
+                    </ul>
+                    <button class="w-full py-4 bg-black text-accent transition duration-500 uppercase font-bold tracking-widest pulse-button">Join The Elite</button>
+                </div>
+                <!-- Gold -->
+                <div class="glass p-10 rounded-2xl transition hover:border-accent group" data-aos="fade-left">
+                    <h4 class="text-xl font-bold uppercase mb-4">Gold (Annual)</h4>
+                    <div class="text-5xl font-heading font-bold mb-6 italic text-white">₹12,000</div>
+                    <ul class="space-y-4 text-zinc-400 mb-10">
+                        <li><i class="fas fa-check-circle text-accent mr-3"></i> All Premium Benefits</li>
+                        <li><i class="fas fa-check-circle text-accent mr-3"></i> Personal Training (3/mo)</li>
+                        <li><i class="fas fa-check-circle text-accent mr-3"></i> Gym Merch Kit</li>
+                        <li><i class="fas fa-check-circle text-accent mr-3"></i> Supplement Consult</li>
+                    </ul>
+                    <button class="w-full py-4 border border-white/20 group-hover:bg-accent group-hover:text-black transition duration-500 uppercase font-bold tracking-widest">Select Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials & Google Reviews -->
+    <section class="py-32 bg-zinc-950 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="flex justify-center gap-1 text-accent mb-4">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <h2 class="text-center text-4xl font-heading mb-4 uppercase tracking-tighter italic">Voice of the <span class="text-accent italic">Athletes</span></h2>
+                <p class="text-zinc-500 text-sm uppercase tracking-[0.3em]">4.8/5 Rated on Google Business</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-xl" data-aos="fade-up">
+                    <div class="text-accent mb-4 text-xl"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="italic text-zinc-300 mb-6">"Best gym in Patia area. The environment is very motivating and the equipment is top-notch. Truly transformed my routine."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-zinc-800"></div>
+                        <div>
+                            <p class="font-bold">Rahul Das</p>
+                            <p class="text-xs text-zinc-500 uppercase">Powerlifter</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-accent mb-4 text-xl"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="italic text-zinc-300 mb-6">"The trainers here actually know their science. My fat loss journey has been incredible under their guidance."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-zinc-800"></div>
+                        <div>
+                            <p class="font-bold">Suman S.</p>
+                            <p class="text-xs text-zinc-500 uppercase">Fitness Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-accent mb-4 text-xl"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="italic text-zinc-300 mb-6">"Spacious, clean, and has all the machines you see in international videos. Highly recommended in Bhubaneswar."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-zinc-800"></div>
+                        <div>
+                            <p class="font-bold">Arjun Mishra</p>
+                            <p class="text-xs text-zinc-500 uppercase">Bodybuilder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [NEW] Lead Capture & FAQ Section -->
+    <section class="py-32 px-6 bg-zinc-900">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
+            <!-- FAQ Accordion -->
+            <div data-aos="fade-right">
+                <h2 class="text-4xl font-heading font-bold mb-10 uppercase italic">ANY <span class="text-accent">QUESTIONS?</span></h2>
+                <div class="space-y-4">
+                    <details class="glass p-6 rounded-2xl group cursor-pointer" open>
+                        <summary class="flex justify-between items-center font-bold uppercase tracking-widest text-sm">
+                            What are the gym timings?
+                            <i class="fas fa-chevron-down text-accent transition-transform"></i>
+                        </summary>
+                        <p class="mt-4 text-zinc-400 text-sm leading-relaxed">We are open from 5:00 AM to 10:00 PM (Monday to Saturday). Sundays we are open from 6:00 AM to 11:00 AM.</p>
+                    </details>
+                    <details class="glass p-6 rounded-2xl group cursor-pointer">
+                        <summary class="flex justify-between items-center font-bold uppercase tracking-widest text-sm">
+                            Do you provide customized diet plans?
+                            <i class="fas fa-chevron-down text-accent transition-transform"></i>
+                        </summary>
+                        <p class="mt-4 text-zinc-400 text-sm leading-relaxed">Yes! Every Silver and Gold member gets a personalized nutrition roadmap based on their body type and goals.</p>
+                    </details>
+                    <details class="glass p-6 rounded-2xl group cursor-pointer">
+                        <summary class="flex justify-between items-center font-bold uppercase tracking-widest text-sm">
+                            Is there a trial period?
+                            <i class="fas fa-chevron-down text-accent transition-transform"></i>
+                        </summary>
+                        <p class="mt-4 text-zinc-400 text-sm leading-relaxed">Absolutely. We offer a 1-day free pass for you to experience the vibe and equipment before joining.</p>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Lead Capture Form -->
+            <div data-aos="fade-left" class="bg-zinc-950 p-10 rounded-3xl border border-zinc-800 relative shadow-2xl">
+                <div class="absolute -top-6 -right-6 bg-accent text-black font-black px-6 py-2 rounded-lg rotate-12 italic">FREE GIFT</div>
+                <h3 class="text-3xl font-heading font-bold mb-4 uppercase italic">GET FREE <br> <span class="text-accent italic">DIET PLAN</span></h3>
+                <p class="text-zinc-500 mb-8 uppercase text-xs tracking-[0.2em]">Fill details to receive your PDF on WhatsApp</p>
+                <form class="space-y-4">
+                    <input type="text" placeholder="Full Name" class="w-full bg-zinc-900 border border-zinc-800 p-4 rounded-xl focus:outline-none focus:border-accent transition">
+                    <input type="tel" placeholder="WhatsApp Number" class="w-full bg-zinc-900 border border-zinc-800 p-4 rounded-xl focus:outline-none focus:border-accent transition">
+                    <button class="w-full bg-accent text-black font-black uppercase py-5 rounded-xl hover:scale-105 transition duration-300 tracking-tighter">I Want My Plan!</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section id="contact" class="py-32 px-6 bg-zinc-950">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div data-aos="fade-right">
+                    <h2 class="text-5xl font-heading font-bold mb-6 italic uppercase leading-tight">Ready to <br> <span class="text-accent italic">Conquer?</span></h2>
+                    <p class="text-zinc-500 mb-10 text-lg">Send us a message or visit us at our Patia den. The first trial is on us!</p>
+                    
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Your Name" class="w-full bg-zinc-900 border border-zinc-800 p-4 rounded-lg focus:outline-none focus:border-accent">
+                        <input type="email" placeholder="Your Email" class="w-full bg-zinc-900 border border-zinc-800 p-4 rounded-lg focus:outline-none focus:border-accent">
+                        <textarea rows="4" placeholder="Your Goal (Weight loss, Muscle build, etc.)" class="w-full bg-zinc-900 border border-zinc-800 p-4 rounded-lg focus:outline-none focus:border-accent"></textarea>
+                        <button class="bg-accent text-black font-black uppercase py-4 px-10 rounded-lg hover:scale-105 transition w-full md:w-auto">Send Message</button>
+                    </form>
+                </div>
+                <div data-aos="fade-left" class="space-y-8">
+                    <div class="rounded-2xl overflow-hidden h-[400px] border border-zinc-800 grayscale">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.7!2d85.82!3d20.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDIxJzA1LjUiTiA4NcKwNDknMjYuMSJF!5e0!3m2!1sen!2sin!4v1611111111111" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h5 class="font-bold text-accent uppercase mb-2">Location</h5>
+                            <p class="text-sm text-zinc-400">Patia Gds, Near Maa Tarini Temple, Bhubaneswar, 751024</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-accent uppercase mb-2">Hours</h5>
+                            <p class="text-sm text-zinc-400">Mon-Sat: 5AM - 10PM<br>Sun: 6AM - 11AM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 bg-black px-6 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-black font-black italic">M</div>
+                    <span class="font-heading text-lg tracking-tighter uppercase italic">Mahima <span class="text-accent italic">Fitness</span></span>
+                </div>
+                <p class="text-zinc-600 text-sm max-w-xs leading-loose">The premier destination for fitness in Odisha. Build your body, fuel your mind.</p>
+            </div>
+            <div class="flex gap-8 text-2xl">
+                <a href="https://www.instagram.com/mahima.fitness_gym/" target="_blank" class="hover:text-accent transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-20 pt-10 border-t border-zinc-900 flex flex-col md:flex-row justify-between text-zinc-600 text-[10px] uppercase tracking-widest">
+            <p>&copy; 2024 Mahima Fitness Gym. All rights reserved.</p>
+            <p>Built for the Iron Disciples of Bhubaneswar</p>
+        </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 800
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-black/90', 'backdrop-blur-xl', 'py-4', 'border-b', 'border-white/5');
+                nav.classList.remove('py-6');
+            } else {
+                nav.classList.remove('bg-black/90', 'backdrop-blur-xl', 'py-4', 'border-b', 'border-white/5');
+                nav.classList.add('py-6');
+            }
+        });
+    </script>
+</body>
+</html>
